@@ -1,0 +1,37 @@
+{
+  "name": "openfl-electron-webpack-starter",
+  "version": "1.0.0",
+  "author": "troyedwardsjr",
+  "description": "A minimal OpenFL Haxe Electron application",
+  "private": true,
+  "main": "./electron/main.js",
+  "config": {
+    "haxe": "3.4.4"
+  },
+  "devDependencies": {
+    "electron": "~1.7.8",
+    "electron-builder": "^19.56.0",
+    "electron-connect": "^0.6.3",
+    "electron-reload": "^1.2.2",
+    "haxe-loader": "^0.5.0",
+    "html-webpack-plugin": "^2.30.1",
+    "live-reload": "^1.1.0",
+    "openfl": "^7.0.0",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-merge": "^4.1.1"
+  },
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "start": "npm run start:dev",
+    "start:dev": "webpack-dev-server --open --config webpack.dev.js",
+    "start:prod": "webpack-dev-server --open --config webpack.prod.js",
+    "postinstall": "haxelib --always install build.hxml",
+    "electron": "webpack --watch --config webpack.electron.dev.js",
+    "electron:dev": "webpack --watch --config webpack.electron.dev.js",
+    "electron:build": "webpack --config webpack.electron.prod.js && electron-builder build"
+  }
+}
